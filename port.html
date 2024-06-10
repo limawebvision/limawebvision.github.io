@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<link rel="stylesheet" href="/index.css">
+
+<script>
+    var linguagemUsuario = navigator.language || navigator.userLanguage;
+    if (linguagemUsuario !== 'pt-BR') {
+        var confirmacao = confirm("Want access english version?");
+        if (confirmacao) {
+            window.location.href = '/port_en.html';
+        }
+    }
+    else {
+        window.location.href = '/port_pt-BR.html';
+    }
+
+</script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<link rel="stylesheet" href="/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10/dist/sweetalert2.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.js"
+    integrity="sha512-pmaEGtUAy7E5gRmwjLqQAD/QWw0dL4Z59b6b+2HQkqQwQ+HcPLLb9/KbUNo5zr10WuXmbivK9nYVZOyDkMgZMg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    function notify(titulo, texto, tempo = 5000, icone = 'success') {
+        Swal.fire({
+            title: titulo,
+            text: texto,
+            toast: false,
+            timer: tempo,
+            showConfirmButton: false,
+            heightAuto: false,
+            customClass: {
+                title: 'swal-title',
+                icon: 'swal-icon',
+                popup: 'swal-bg'
+            },
+            background: '#0c0c0c',
+            icon: icone,
+            confirmButtonColor: '#3085d6',
+            height: '20rem',
+            width: '30rem'
+        });
+    }
+
+    var url = "/url.txt";
+    var portfolio = "https://a.a";
+    fetch(url)
+        .then(response => {
+            if (response.status === 301) {
+                return response.text().then(newUrl => {
+                    return fetch(newUrl);
+                });
+            }
+            if (!response.ok) {
+                throw new Error('Erro ao obter o arquivo');
+            }
+            return response.text();
+        })
+        .then(texto => {
+            portfolio = texto;
+            verificarStatusPagina();
+        })
+        .catch(erro => {
+            console.error('Erro:', erro);
+        });
+
+    function verificarStatusPagina() {
+        const redirectToResume = () => {
+            notify("SYSTEM", "Portfolio is offline, we are under maintenance, please try again later... (redirecting to resume)", 5000, 'error');
+            setTimeout(() => { window.location.href = '/index.html'; }, 4000);
+        };
+
+        const redirectToPortfolio = () => {
+            notify("SYSTEM", "Portfolio is online, redirecting...");
+            setTimeout(() => { window.location.href = portfolio; }, 1500);
+        };
+
+        fetch(portfolio + "/healthcheck/index.php", { mode: "cors" })
+            .then(response => {
+                const status = response.status;
+                console.log(status);
+                if (status === 200) {
+                    redirectToPortfolio();
+                } else if (status === 301) {
+                    notify("SYSTEM", "Permanent redirection detected, redirecting...");
+                    fetch(portfolio + "/healthcheck", { mode: 'cors' })
+                        .then(response => {
+                            if (response.status === 200 && response.data.trim() === "ok") {
+                                notify("SYSTEM", "Portfolio is online after redirection, redirecting...");
+                                redirectToPortfolio();
+                            } else {
+                                redirectToResume();
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error while checking redirection status:", error);
+                            redirectToResume();
+                        });
+                } else if (status === 404 || status === 502) {
+                    redirectToResume();
+                }
+            })
+            .catch(error => {
+                notify("SYSTEM", "Portfolio is offline, we are under maintenance, please try again later... (redirecting to resume)", 5000, 'error');
+                setTimeout(() => { window.location.href = '/index.html'; }, 4000);
+                console.error("Error while checking page status:", error);
+            });
+    }
+
+
+
+
+</script>

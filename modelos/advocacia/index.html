@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIMA</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="./luxy.css">
+  <link rel="stylesheet" href="" id="cssbase">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">Lima WebVision</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#estatisticas">estatisticas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Depoimentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contato</a>
+          </li>
+          <li class="nav-item dropdown" style="animation: bounce 2s infinite;">
+            <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Temas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="themeDropdown">
+              <a class="dropdown-item" href="#" data-theme="minimalist">Minimalista</a>
+              <a class="dropdown-item" href="#" data-theme="dark">Dark Mode</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron d-flex align-items-center">
+    <div class="container text-center">
+      <h1 class="display-4 lazy">Seu Nome</h1>
+      <p class="lead lazy">Alguma descrição</p>
+      <a href="#about lazy" class="btn btn-gold btn-lg mt-4">Saiba Mais</a>
+    </div>
+    <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+  </div>
+
+ <!-- About Section -->
+<div id="about" class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <h2 class="lazy">Sobre Nós</h2>
+        <p class="lead lazy">Somos um escritório de advocacia dedicado a fornecer serviços jurídicos de alta qualidade. Nossa equipe é composta por profissionais experientes e comprometidos com a excelência.</p>
+        <hr class="my-4">
+        <h4 class="mb-3 lazy">Nossa História</h4>
+        <p class="text-muted mb-4 lazy">
+          Conte aqui a história por trás da fundação do escritório de advocacia, destacando eventos importantes, marcos alcançados e como a empresa evoluiu ao longo do tempo.
+        </p>
+        <h4 class="mb-3 lazy">Missão e Valores</h4>
+        <p class="text-muted mb-4 lazy">
+          Expressamos claramente nossa missão e os valores fundamentais que orientam nosso trabalho, demonstrando a identidade e o propósito da empresa.
+        </p>
+        <h4 class="mb-3 lazy">Equipe</h4>
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <div class="card lazy">
+              <img src="./assets/adv1.jpeg" class="card-img-top" alt="Membro da Equipe 1">
+              <div class="card-body">
+                <h5 class="card-title">Juliano Pierre</h5>
+                <p class="card-text">Especialidade: Criminalista</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card lazy">
+              <img src="./assets/adv2.jpeg" class="card-img-top" alt="Membro da Equipe 2">
+              <div class="card-body">
+                <h5 class="card-title">Ana Silva</h5>
+                <p class="card-text">Especialidade: Trabalhista</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card lazy">
+              <img src="./assets/adv3.jpeg" class="card-img-top" alt="Membro da Equipe 3">
+              <div class="card-body">
+                <h5 class="card-title">Romeu Almeida</h5>
+                <p class="card-text">Especialidade: Digital/Influencers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- Services Section -->
+<div id="services" class="section services-section">
+  <div class="container text-center">
+    <h2 class="lazy">Nossos Serviços</h2>
+    <div class="row overflow-x-auto">
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-balance-scale fa-3x mb-3 text-dark"></i>
+        <h4 class="lazy">Consultoria Jurídica</h4>
+        <p class="lazy">Oferecemos consultoria especializada em diversas áreas do direito, ajudando nossos clientes a tomar decisões informadas.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-gavel fa-3x mb-3 text-dark"></i>
+        <h4 class="lazy">Representação Legal</h4>
+        <p class="lazy">Defendemos os interesses de nossos clientes em processos judiciais e administrativos, com competência e dedicação.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-handshake fa-3x mb-3 text-dark"></i>
+        <h4 class="lazy">Mediação e Arbitragem</h4>
+        <p class="lazy">Auxiliamos na resolução de conflitos através de métodos alternativos, buscando sempre o melhor resultado para nossos clientes.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-briefcase fa-3x mb-3 text-dark"></i>
+        <h4 class="lazy">Assessoria Empresarial</h4>
+        <p class="lazy">Prestamos serviços de assessoria jurídica para empresas de todos os portes, garantindo segurança e conformidade legal.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-file-alt fa-3x mb-3 text-dark"></i>
+        <h4 class="lazy">Elaboração de Contratos</h4>
+        <p class="lazy">Criamos contratos personalizados de acordo com as necessidades de cada cliente, assegurando clareza e eficácia.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-balance-scale-right fa-3x mb-3 text-dark"></i>
+        <h4 class="lazy">Advocacia Preventiva</h4>
+        <p class="lazy">Atuamos proativamente na identificação e prevenção de possíveis problemas legais, minimizando riscos e custos para nossos clientes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Estatísticas Section -->
+<div id="estatisticas" class="section py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Nossas Estatísticas</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4 lazy">
+        <div class="text-center">
+          <i class="fas fa-chart-line fa-4x text-primary mb-4"></i>
+          <h3 class="mb-3">Taxa de Crescimento</h3>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+          </div>
+          <p class="mt-3">Taxa média de crescimento do número de casos atendidos.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 lazy">
+        <div class="text-center">
+          <i class="fas fa-users fa-4x text-primary mb-4"></i>
+          <h3 class="mb-3">Clientes Satisfeitos</h3>
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
+          </div>
+          <p class="mt-3">Percentual de clientes que relataram estar satisfeitos com nossos serviços.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 lazy">
+        <div class="text-center">
+          <i class="fas fa-chart-pie fa-4x text-primary mb-4"></i>
+          <h3 class="mb-3">Taxa de Sucesso</h3>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+          </div>
+          <p class="mt-3">Porcentagem de casos resolvidos a favor dos nossos clientes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- Testimonials Section -->
+  <div id="testimonials" class="section">
+    <div class="container">
+      <h2 class="lazy">Depoimentos</h2>
+      <h5 class="lazy">Essas são as avaliações dos teus futuros clientes</h5>
+      <div class="row overflow-x-auto">
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Excelente atendimento e profissionais competentes."</p>
+            <footer class="blockquote-footer">Cliente 1</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Resolvi meu problema rapidamente com a ajuda deles."</p>
+            <footer class="blockquote-footer">Cliente 2</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Recomendo a todos que precisam de serviços jurídicos."</p>
+            <footer class="blockquote-footer">Cliente 3</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Profissionais altamente capacitados e atendimento personalizado."</p>
+            <footer class="blockquote-footer">Cliente 4</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Impressionado com a qualidade dos serviços prestados."</p>
+            <footer class="blockquote-footer">Cliente 5</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Equipe dedicada e comprometida com a resolução dos problemas."</p>
+            <footer class="blockquote-footer">Cliente 6</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Atendimento rápido e eficiente, superou minhas expectativas."</p>
+            <footer class="blockquote-footer">Cliente 7</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Agradeço pela dedicação e profissionalismo durante todo o processo."</p>
+            <footer class="blockquote-footer">Cliente 8</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Serviço impecável, recomendo a todos os meus amigos e familiares."</p>
+            <footer class="blockquote-footer">Cliente 9</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Fiquei extremamente satisfeito com o resultado final. Muito obrigado!"</p>
+            <footer class="blockquote-footer">Cliente 10</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Profissionais competentes e preço justo. Recomendo a todos."</p>
+            <footer class="blockquote-footer">Cliente 11</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Me senti seguro e bem assistido durante todo o processo."</p>
+            <footer class="blockquote-footer">Cliente 12</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Contact Section -->
+<div id="contact" class="section lazy">
+  <div class="container text-center">
+    <h2 class="lazy">Contato</h2>
+    <h5 class="lazy">Entre em contato conosco para mais informações. Estamos à disposição para atender suas necessidades jurídicas.</h5>
+    <div class="contact-options mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-3 mb-4">
+          <a href="mailto:devhenrike+limawebvision@gmail.com" class="btn btn-lg contact-btn rounded-pill" target="_blank">
+            <i class="fas fa-envelope fa-5x"></i>
+            <p class="mt-3 contact-label">Email</p>
+          </a>
+        </div>
+        <div class="col-md-3 mb-4">
+          <a href="tel:+5551999309404" class="btn btn-lg contact-btn rounded-pill" target="_blank">
+            <i class="fas fa-phone fa-5x"></i>
+            <p class="mt-3 contact-label">Ligar</p>
+          </a>
+        </div>
+        <div class="col-md-3 mb-4">
+          <a href="https://wa.me/5551999309404" class="btn btn-lg contact-btn rounded-pill" target="_blank">
+            <i class="fab fa-whatsapp fa-5x"></i>
+            <p class="mt-3 contact-label">WhatsApp</p>
+          </a>
+        </div>
+        <div class="col-md-3 mb-4">
+          <a href="https://www.linkedin.com/in/kau%C3%A3-lima-ba80912bb/" class="btn btn-lg contact-btn rounded-pill" target="_blank">
+            <i class="fab fa-linkedin fa-5x"></i>
+            <p class="mt-3 contact-label">LinkedIn</p>
+          </a>
+        </div>
+        <div class="col-md-3 mb-4">
+          <a href="https://www.facebook.com/advocaciaexemplo" class="btn btn-lg contact-btn rounded-pill" target="_blank">
+            <i class="fab fa-facebook fa-5x"></i>
+            <p class="mt-3 contact-label">Facebook</p>
+          </a>
+        </div>
+        <div class="col-md-3 mb-4">
+          <a href="https://www.instagram.com/lima_webvision/" class="btn btn-lg contact-btn rounded-pill" target="_blank">
+            <i class="fab fa-instagram fa-5x"></i>
+            <p class="mt-3 contact-label">Instagram</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+<footer class="footer text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Contato</h4>
+        <p>Endereço: Av. Exemplo, 123 - Cidade, Estado</p>
+        <p>Telefone: (00) 1234-5678</p>
+        <p>Email: contato@exemplo.com</p>
+      </div>
+      <div class="col-md-4">
+        <h4>Links Úteis</h4>
+        <ul class="list-unstyled">
+          <li><a href="#">Serviços</a></li>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h4>Redes Sociais</h4>
+        <ul class="list-unstyled">
+          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12">
+        <p class="small">&copy; 2024 Seu Nome. Todos os direitos reservados. Desenvolvido por <a href="https://henrique3h0.github.io/">Lima WebVision</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11/dist/sweetalert2.all.min.js"></script>
+  <script>
+    // Função para trocar o tema
+    function trocaTema(tema) {
+      var linkTema = $("#cssbase");
+      switch(tema) {
+        case 'gamer':
+          linkTema.attr("href", "./gamer.css");
+          break;
+        case 'minimalist':
+          linkTema.attr("href", "./minimal.css");
+          break;
+        case 'dark':
+          linkTema.attr("href", "./dark.css");
+          break;
+      }
+    }
+
+    $(document).ready(function() {
+      setTimeout(function(){
+        Swal.fire({
+          title: 'Dica do Dia 1',
+          text: 'Clique duas vezes rapidamente em algum texto para edita-lo e ver como seria do seu jeito'
+        }).then((result) => {
+          Swal.fire({
+            title: 'Dica do Dia 2',
+            text: 'Ali em cima, clique na opção temas e escolha um diferente caso queira'
+          });
+        });
+      }, 5000);
+
+      $('span, p, h1, h2, h3, h4, h5').dblclick(function() {
+        var currentElement = $(this);
+        var currentText = currentElement.text();
+
+        Swal.fire({
+          title: 'Editar texto',
+          input: 'text',
+          inputLabel: 'Novo texto',
+          inputValue: currentText,
+          showCancelButton: true,
+          inputValidator: (value) => {
+            if (!value) {
+              return 'Você precisa digitar algum texto!';
+            }
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            currentElement.text(result.value);
+            Swal.fire(
+              'Atualizado!',
+              'O texto foi atualizado.',
+              'success'
+            );
+          }
+        });
+      });
+
+      $(".dropdown-item").click(function() {
+        var tema = $(this).data("theme");
+        trocaTema(tema);
+      });
+
+      // Lazy loading para textos
+      const lazyLoad = () => {
+        const lazyElements = document.querySelectorAll('.lazy');
+        lazyElements.forEach(element => {
+          const rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            element.classList.add('loaded');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', lazyLoad);
+      window.addEventListener('load', lazyLoad);
+
+      setTimeout(function(){
+        Swal.fire({
+          title: 'Opa, eai, como vai?',
+          confirmButtonText: "Com certeza",
+          showCancelButton: true,
+          text: 'To vendo que se ta navegando bastante, que tal agendar uma reunião conosco para ter sua propria pagina?'
+        }).then((result) => {
+          if (result.isConfirmed){
+            window.location.href ="/index.html#contato";
+          }
+        });
+      }, 60000);
+    });
+  </script>
+</body>
+</html>

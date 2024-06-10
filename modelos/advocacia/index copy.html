@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIMA</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11/dist/sweetalert2.min.css">
+  <style>
+    .section {
+      padding: 60px 0;
+    }
+    .btn-gold {
+      color: #fff;
+      background-color: #d4af37;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .btn-gold:hover {
+      background-color: #c49a2c;
+    }
+    .contact-options a {
+      display: inline-block;
+      margin: 10px;
+    }
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: #fff;
+    }
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+    }
+    .lazy {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .lazy.loaded {
+      opacity: 1;
+    }
+    .attorney-card {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .attorney-card img {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .attorney-card h4 {
+      margin-bottom: 5px;
+    }
+    .attorney-card p {
+      color: #777;
+    }
+  </style>
+  <link rel="stylesheet" href="./luxy.css" id="cssbase">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">Lima WebVision</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfólio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Depoimentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contato</a>
+          </li>
+          <li class="nav-item dropdown" style="animation: bounce 2s infinite;">
+            <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Temas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="themeDropdown">
+              <a class="dropdown-item" href="#" data-theme="gamer">Gamer</a>
+              <a class="dropdown-item" href="#" data-theme="minimalist">Minimalista</a>
+              <a class="dropdown-item" href="#" data-theme="dark">Dark Mode</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron d-flex align-items-center">
+    <div class="container text-center">
+      <h1 class="display-4">Seu Nome</h1>
+      <p class="lead">Alguma descrição</p>
+      <a href="#about" class="btn btn-gold btn-lg mt-4">Saiba Mais</a>
+    </div>
+    <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+  </div>
+
+  <!-- About Section -->
+  <div id="about" class="section">
+    <div class="container">
+      <h2 class="text-center lazy">Sobre Nós</h2>
+      <p class="text-center lazy">Somos um escritório de advocacia dedicado a fornecer serviços jurídicos de alta qualidade. Nossa equipe é composta por profissionais experientes e comprometidos com a excelência.</p>
+    </div>
+  </div>
+
+  <!-- Attorneys Section -->
+  <div id="attorneys" class="section">
+    <div class="container">
+      <h2 class="text-center lazy">Nossos Advogados</h2>
+      <div class="row">
+        <div class="col-md-4 attorney-card lazy">
+          <img src="./assets/yourimage.jpeg" alt="Advogado 1">
+          <h4>Advogado 1</h4>
+          <p>Especialista em Direito Civil</p>
+        </div>
+        <div class="col-md-4 attorney-card lazy">
+          <img src="./assets/yourimage.jpeg" alt="Advogado 2">
+          <h4>Advogado 2</h4>
+          <p>Especialista em Direito Penal</p>
+        </div>
+        <div class="col-md-4 attorney-card lazy">
+          <img src="./assets/yourimage.jpeg" alt="Advogado 3">
+          <h4>Advogado 3</h4>
+          <p>Especialista em Direito Trabalhista</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div id="services" class="section services-section">
+    <div class="container text-center">
+      <h2 class="lazy">Nossos Serviços</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-balance-scale fa-3x mb-3 text-dark"></i>
+          <h4 class="lazy">Consultoria Jurídica</h4>
+          <p class="lazy">Oferecemos consultoria especializada em diversas áreas do direito, ajudando nossos clientes a tomar decisões informadas.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-gavel fa-3x mb-3 text-dark"></i>
+          <h4 class="lazy">Representação Legal</h4>
+          <p class="lazy">Defendemos os interesses de nossos clientes em processos judiciais e administrativos, com competência e dedicação.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-handshake fa-3x mb-3 text-dark"></i>
+          <h4 class="lazy">Mediação e Arbitragem</h4>
+          <p class="lazy">Auxiliamos na resolução de conflitos através de métodos alternativos, buscando sempre o melhor resultado para nossos clientes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Section -->
+  <div id="portfolio" class="section">
+    <div class="container">
+      <h2 class="lazy">Portfólio</h2>
+      <p class="lazy text-center">Confira alguns dos nossos casos de sucesso e projetos em que trabalhamos.</p>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <img src="./assets/yourimage.jpeg" alt="Projeto 1" class="img-fluid lazy">
+          <h4 class="lazy">Projeto 1</h4>
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="./assets/yourimage.jpeg" alt="Projeto 2" class="img-fluid lazy">
+          <h4 class="lazy">Projeto 2</h4>
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="./assets/yourimage.jpeg" alt="Projeto 3" class="img-fluid lazy">
+          <h4 class="lazy">Projeto 3</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div id="testimonials" class="section">
+    <div class="container">
+      <h2 class="lazy">Depoimentos</h2>
+      <h4 class="lazy">Essas são as avaliações dos teus futuros clientes</h4>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Excelente atendimento e profissionais competentes."</p>
+            <footer class="blockquote-footer">Cliente 1</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Resolvi meu problema rapidamente com a ajuda deles."</p>
+            <footer class="blockquote-footer">Cliente 2</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-4">
+          <blockquote class="blockquote lazy">
+            <p class="mb-0">"Recomendo a todos que precisam de serviços jurídicos."</p>
+            <footer class="blockquote-footer">Cliente 3</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact" class="section">
+    <div class="container text-center">
+      <h2 class="lazy">Contato</h2>
+      <p class="lazy">Entre em contato conosco para mais informações. Estamos à disposição para atender suas necessidades jurídicas.</p>
+      <div class="contact-options">
+        <a href="mailto:contato@advocaciaexemplo.com" class="btn btn-gold">
+          <i class="fas fa-envelope"></i> Enviar Email
+        </a>
+        <a href="tel:+5511999999999" class="btn btn-gold">
+          <i class="fas fa-phone"></i> Ligar
+        </a>
+        <a href="https://wa.me/5511999999999" class="btn btn-gold" target="_blank">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.linkedin.com/in/advocaciaexemplo" class="btn btn-gold" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://www.facebook.com/advocaciaexemplo" class="btn btn-gold" target="_blank">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/advocaciaexemplo" class="btn btn-gold" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11/dist/sweetalert2.all.min.js"></script>
+  <script>
+    // Função para trocar o tema
+    function trocaTema(tema) {
+      var linkTema = $("#cssbase");
+      switch(tema) {
+        case 'gamer':
+          linkTema.attr("href", "./gamer.css");
+          break;
+        case 'minimalist':
+          linkTema.attr("href", "./minimal.css");
+          break;
+        case 'dark':
+          linkTema.attr("href", "./dark.css");
+          break;
+      }
+    }
+
+    $(document).ready(function() {
+      Swal.fire({
+        title: 'Dica do Dia 1',
+        text: 'Clique duas vezes rapidamente em algum texto para edita-lo e ver como seria do seu jeito'
+      }).then((result) => {
+        Swal.fire({
+          title: 'Dica do Dia 2',
+          text: 'Ali em cima, clique na opção temas e escolha um diferente caso queira'
+        });
+      });
+
+      $('span, p, h1, h2, h3, h4, h5').dblclick(function() {
+        var currentElement = $(this);
+        var currentText = currentElement.text();
+
+        Swal.fire({
+          title: 'Editar texto',
+          input: 'text',
+          inputLabel: 'Novo texto',
+          inputValue: currentText,
+          showCancelButton: true,
+          inputValidator: (value) => {
+            if (!value) {
+              return 'Você precisa digitar algum texto!';
+            }
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            currentElement.text(result.value);
+            Swal.fire(
+              'Atualizado!',
+              'O texto foi atualizado.',
+              'success'
+            );
+          }
+        });
+      });
+
+      $(".dropdown-item").click(function() {
+        var tema = $(this).data("theme");
+        trocaTema(tema);
+      });
+
+      // Lazy loading para textos
+      const lazyLoad = () => {
+        const lazyElements = document.querySelectorAll('.lazy');
+        lazyElements.forEach(element => {
+          const rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            element.classList.add('loaded');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', lazyLoad);
+      window.addEventListener('load', lazyLoad);
+
+      setTimeout(function(){
+        Swal.fire({
+          title: 'Opa, eai, como vai?',
+          confirmButtonText: "Com certeza",
+          showCancelButton: true,
+          text: 'To vendo que se ta navegando bastante, que tal agendar uma reunião conosco para ter sua propria pagina?'
+        }).then((result) => {
+          if (result.isConfirmed){
+            window.location.href ="/index.html#contato";
+          }
+        });
+      }, 30000);
+    });
+  </script>
+</body>
+</html>

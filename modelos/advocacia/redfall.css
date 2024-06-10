@@ -1,0 +1,173 @@
+/* luxy-profile.css */
+body {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    background-color: #f7f7f7;
+  }
+  
+  .navbar {
+    background-color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand, .nav-link {
+    font-family: 'Playfair Display', serif;
+    color: #a50026;
+  }
+  
+  .navbar-brand:hover, .nav-link:hover {
+    color: #d32f2f;
+  }
+  
+  .jumbotron {
+    background: url('assets/yourimage.jpeg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    margin-bottom: 0;
+  }
+  
+  .jumbotron .display-4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #a50026;
+  }
+  
+  .jumbotron .lead {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #a50026;
+  }
+  
+  .section {
+    padding: 80px 0;
+  }
+  
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #a50026;
+  }
+  
+  .section p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+  }
+  
+  .attorney-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .attorney-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .attorney-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .attorney-card h4 {
+    font-size: 1.3rem;
+    color: #a50026;
+    margin-bottom: 5px;
+  }
+  
+  .attorney-card p {
+    color: #95a5a6;
+  }
+  
+  .btn-red {
+    background-color: #a50026;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-red:hover {
+    background-color: #d32f2f;
+  }
+  
+  .footer {
+    background-color: #000;
+    color: #ecf0f1;
+    padding: 20px 0;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
+  .contact-options a {
+    display: inline-block;
+    margin: 10px;
+    color: #a50026;
+  }
+  
+  .contact-options a:hover {
+    color: #d32f2f;
+  }
+  
+  .scroll-down {
+    color: #a50026;
+    transition: color 0.3s;
+  }
+  
+  .scroll-down:hover {
+    color: #d32f2f;
+  }
+  
+  blockquote {
+    border-left: 5px solid #a50026;
+    padding-left: 15px;
+    color: #7f8c8d;
+  }
+  
+  blockquote footer {
+    color: #95a5a6;
+  }
+  
+  .lazy {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .lazy.loaded {
+    opacity: 1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  
+    .navbar-nav .nav-item {
+      margin: 0 10px;
+    }
+  
+    .jumbotron .display-4 {
+      font-size: 3rem;
+    }
+  
+    .jumbotron .lead {
+      font-size: 1.2rem;
+    }
+  
+    .section h2 {
+      font-size: 2rem;
+    }
+  }
+  

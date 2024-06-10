@@ -1,0 +1,160 @@
+/* Reset de Estilos */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* RedFall Theme */
+  :root {
+    /* Cores */
+    --cor-primaria: #ff3f3f; /* Vermelho */
+    --cor-secundaria: #401010; /* Marrom escuro */
+    --cor-texto: #fff; /* Branco */
+    --cor-fundo: #333; /* Preto */
+    --cor-hover: #ff7f7f; /* Vermelho claro para efeito hover */
+
+    /* Tipografia */
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-corpo: 'Lora', serif;
+
+    /* Espaçamento */
+    --espacamento-vertical: 30px;
+    --espacamento-horizontal: 20px;
+
+    /* Imagem de Plano de Fundo do Jumbotron */
+    --imagem-jumbotron: url(https://via.placeholder.com/1500x600); /* Adicione sua imagem de plano de fundo aqui */
+  }
+
+  /* Body */
+  body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: var(--cor-primaria);
+  }
+
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: white;
+  }
+
+  /* Jumbotron */
+  .jumbotron {
+    background-image: var(--imagem-jumbotron);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+  }
+
+  .jumbotron h1,
+  .jumbotron p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.5s ease;
+  }
+
+  /* Section Titles */
+  h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-primaria);
+    margin-bottom: var(--espacamento-vertical);
+    text-transform: uppercase;
+  }
+
+  /* Buttons */
+  .btn {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: var(--cor-hover);
+  }
+
+  /* Links */
+  a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--cor-hover);
+  }
+
+  /* Portfolio Section */
+  #portfolio {
+    background-color: var(--cor-secundaria);
+    padding: 50px 0;
+  }
+
+  .portfolio-item {
+    text-align: center;
+    margin-bottom: var(--espacamento-vertical);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .portfolio-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .portfolio-item img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+    max-width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .portfolio-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .portfolio-item h4 {
+    color: var(--cor-primaria);
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    transition: color 0.5s ease;
+  }
+
+  .portfolio-item p {
+    color: var(--cor-texto);
+    font-size: 18px;
+  }
+
+  /* Scroll Down Button */
+  .scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--cor-texto);
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+
+  .scroll-down:hover {
+    color: var(--cor-primaria);
+  }

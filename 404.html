@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erro 404 - Página não encontrada</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      background-color: #333;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      padding-bottom: 50px;
+      text-align: center;
+    }
+    .error-icon {
+      font-size: 10rem;
+      margin-top: 50px;
+      animation: rotateIn 1s ease-in-out;
+    }
+    .error-message {
+      font-size: 2rem;
+      margin-top: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .btn-return {
+      background: linear-gradient(to left, #7e0eda, #007bff);;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 15px 30px;
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease;
+      animation: slideIn 1s ease-in-out;
+    }
+    .btn-return:hover {
+      background: #007bff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    @keyframes rotateIn {
+      0% {
+        transform: rotate(-360deg);
+      }
+      100% {
+        transform: rotate(0);
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-50px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <i class="fas fa-exclamation-triangle error-icon"></i>
+  <h1 class="error-message">Oops! Parece que você está perdido.</h1>
+  <p class="error-message">A página que você está procurando não foi encontrada.</p>
+  <a href="/index.html"><button class="btn btn-return">Voltar</button><a></a>
+</body>
+</html>

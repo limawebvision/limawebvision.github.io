@@ -353,6 +353,16 @@ $(document).ready(function () {
         });
     }
 
-
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > $('.hero-section').height()) {
+          $('#scroll-to-top').fadeIn("slow");
+        } else {
+          $('#scroll-to-top').fadeOut("slow");
+        }
+      });
+      $('#scroll-to-top').click(function() {
+        $('html, body').animate({scrollTop: 0}, 100);
+        return false;
+      });
 
 });

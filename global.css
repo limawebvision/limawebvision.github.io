@@ -29,6 +29,7 @@
 
 body {
     background-color: #010C22;
+    color: #fff;
     font-size: 1.5rem;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/land-bg.jpeg') center/cover no-repeat;
 }
@@ -38,10 +39,12 @@ body {
     border: none;
     border-radius: 20px;
     overflow: hidden;
+    color: #fff;
     position: relative;
+    margin: 10px;
     transition: all 1s;
     background-color: transparent;
-    animation: fadeIn 0.6s ease forwards, borderAnimation 2s infinite alternate;
+    animation: fadeIn 0.3s ease forwards, borderAnimation 0.6s infinite alternate;
 }
 
 .card i {
@@ -59,7 +62,7 @@ h5 {
     }
 
     100% {
-        border: 4px solid #00f7ff;
+        border: 2px solid #00f7ff;
     }
 }
 
@@ -439,7 +442,7 @@ section {
     }
 
     .lazy {
-        opacity: 1;
+        opacity: 0;
         transition: opacity 1s ease-in-out;
     }
 
@@ -483,14 +486,14 @@ section {
         100% { opacity: 0; transform: translateY(20px); }
     }
 
-    #proposta-comercial .card {
+    #planos .card {
         background-color: rgba(0, 0, 0, 0.8);
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    #proposta-comercial .card:hover {
+    #planos .card:hover {
         transform: scale(1.05);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }

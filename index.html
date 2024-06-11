@@ -40,6 +40,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="global.css">
+    <style>
+        body{
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -81,8 +86,8 @@
         </div>
     </section>
 
-    <div class="container py-5 lazy">
-        <section>
+    <div class="container py-5">
+        <section class="lazy">
             <h1 class="text-center text-white mb-4">Projetos <i class="fas fa-question-circle question-icon"
                     help="Aqui é onde ficam alguns de meus projetos recentes, que tal colocar o seu aqui também😉"
                     onclick="help_toast(this)"></i></h1>
@@ -120,7 +125,7 @@
 
         </section>
 
-        <section id="beneficios" class="py-5">
+        <section id="beneficios" class="py-5 lazy">
             <div class="container">
                 <h1 class="text-center text-white mb-4">Por Que Ter um Site, Sistema ou Bot?</h1>
                 <div class="row">
@@ -238,7 +243,7 @@
                         <div class="d-flex justify-content-center alinh-items-center flex-column card p-3">
                             <i class="fas fa-cogs fa-3x mb-3 text-white"></i>
                             <h3 class="text-white">Sistemas de Gerenciamento</h3>
-                            <p class="text-white">Desenvolvemos sistemas de gerenciamento personalizados para diversos setores, como financeiro, revenda de veículos, odontológico, e muito mais, otimizando a gestão e o controle do seu negócio.</p>
+                            <p class="text-white">Personalizados para diversos setores, como financeiro, revenda de veículos, odontológico, e mais, otimizando a gestão.</p>
                         </div>
                     </div>
                 </div>
@@ -345,9 +350,47 @@
             </div>
         </section>
 
-        <section id="proposta-comercial" class="py-5">
+        <section id="comparacao-planos" class="py-5 lazy">
             <div class="container">
-                <h1 class="text-center text-white mb-4">Nossos Planos</h1>
+                <h1 class="text-center text-white mb-4">Diferença entre Planos e Serviços Lifetime</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h2 class="text-center text-primary mb-3">Planos de Assinatura</h2>
+                            <p>Os planos de assinatura são ideais para quem busca um suporte contínuo e atualizações constantes. Com uma cobrança mensal, você terá acesso a uma série de serviços que evoluem conforme suas necessidades e o crescimento do seu negócio.</p>
+                            <h3 class="text-primary">Vantagens:</h3>
+                            <ul>
+                                <li><strong>Atualizações Regulares:</strong> Seu site ou sistema estará sempre atualizado com as últimas tecnologias e tendências de design.</li>
+                                <li><strong>Suporte Contínuo:</strong> Assistência constante para resolver problemas e otimizar o desempenho.</li>
+                                <li><strong>Flexibilidade:</strong> Capacidade de ajustar e expandir os serviços conforme seu negócio cresce.</li>
+                                <li><strong>Menor Custo Inicial:</strong> Pagamentos mensais mais acessíveis comparados a um grande investimento inicial.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h2 class="text-center text-success mb-3">Serviços Lifetime</h2>
+                            <p>Os serviços lifetime são perfeitos para aqueles que desejam fazer um único pagamento e garantir a propriedade completa do projeto sem custos recorrentes. Ideal para projetos mais definidos e com necessidades específicas.</p>
+                            <h3 class="text-success">Vantagens:</h3>
+                            <ul>
+                                <li><strong>Pagamento Único:</strong> Um investimento inicial que elimina a necessidade de pagamentos mensais contínuos.</li>
+                                <li><strong>Propriedade Total:</strong> Controle completo do projeto, sem depender de contratos de serviço contínuos.</li>
+                                <li><strong>Independência:</strong> Ideal para empresas que preferem gerenciar seus próprios sistemas após a implementação.</li>
+                                <li><strong>Personalização Completa:</strong> Desenvolvimento feito sob medida para atender todas as especificações únicas do seu negócio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="planos" class="py-5 lazy">
+            <div class="container">
+                <h1 class="text-center text-white mb-4">Nossos Planos (Estimativa) <i
+                    class="fas fa-question-circle question-icon"
+                    help="Aqui estão nossos principais planos. Os preços são estimativas; na reunião, iremos decidir todos os detalhes: projeto, tecnologias, objetivos e, claro, o preço mais otimizado possível."
+                    onclick="help_toast(this)"></i></h1>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center align-items-center flex-column card p-3">
@@ -356,31 +399,31 @@
                             <div class="price text-white">
                                 <p><b>R$199,90</b>/mês</p>
                             </div>
-                            <p class="text-white">Perfeito para quem está começando e precisa de uma presença online básica.</p>
+                            <p class="text-white">O plano perfeito para quem está começando e precisa de uma presença online básica, mas profissional e eficaz.</p>
                             <p class="text-white">Inclui:</p>
                             <ul class="text-white">
-                                <li>Landing Page simples</li>
-                                <li>Hospedagem web</li>
-                                <li>1 domínio personalizado</li>
-                                <li>SEO básico</li>
+                                <li>Landing Page simples, ideal para captar os primeiros clientes</li>
+                                <li>Hospedagem web segura e confiável</li>
+                                <li>1 domínio personalizado para reforçar sua marca</li>
+                                <li>SEO básico para garantir que você seja encontrado no Google</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center align-items-center flex-column card p-3">
                             <i class="fas fa-chart-line fa-3x mb-3 text-white"></i>
-                            <h3 class="text-white">Intermediário</h3>
+                            <h3 class="text-white">Empresario</h3>
                             <div class="price text-white">
                                 <p><b>R$599,90</b>/mês</p>
                             </div>
-                            <p class="text-white">Ideal para empresas em crescimento que desejam expandir sua presença online.</p>
+                            <p class="text-white">Ideal para empresas em crescimento que desejam expandir sua presença online e alcançar novos mercados.</p>
                             <p class="text-white">Inclui tudo do plano Iniciante, mais:</p>
                             <ul class="text-white">
-                                <li>Website responsivo</li>
-                                <li>Gerenciamento de conteúdo</li>
-                                <li>SEO avançado</li>
-                                <li>Integração com redes sociais</li>
-                                <li>Relatórios de desempenho</li>
+                                <li>Website responsivo que se adapta a qualquer dispositivo</li>
+                                <li>Gerenciamento de conteúdo para manter seu site sempre atualizado</li>
+                                <li>SEO avançado para melhorar ainda mais sua visibilidade</li>
+                                <li>Integração com redes sociais para aumentar o engajamento</li>
+                                <li>Relatórios de desempenho para você acompanhar os resultados</li>
                             </ul>
                         </div>
                     </div>
@@ -391,13 +434,13 @@
                             <div class="price text-white">
                                 <p><b>A combinar</b></p>
                             </div>
-                            <p class="text-white">Para empresas com necessidades específicas.</p>
+                            <p class="text-white">Para empresas com necessidades específicas que buscam soluções sob medida e exclusivas.</p>
                             <p class="text-white">Inclui:</p>
                             <ul class="text-white">
-                                <li>Consulta personalizada</li>
-                                <li>Desenvolvimento sob medida</li>
-                                <li>Integrações avançadas</li>
-                                <li>Gerenciamento contínuo</li>
+                                <li>Consulta personalizada para entender suas necessidades</li>
+                                <li>Desenvolvimento sob medida para atender exatamente suas expectativas</li>
+                                <li>Integrações avançadas para potencializar suas operações</li>
+                                <li>Gerenciamento contínuo para garantir que tudo funcione perfeitamente</li>
                             </ul>
                         </div>
                     </div>
@@ -406,9 +449,12 @@
         </section>
 
 
-        <section id="servicos" class="py-5">
+        <section id="servicos_estimativa" class="py-5 lazy">
             <div class="container">
-                <h1 class="text-center text-white mb-4">Nossos Serviços</h1>
+                <h1 class="text-center text-white mb-4">Preço de Serviço (Estimativa) <i
+                    class="fas fa-question-circle question-icon"
+                    help="Aqui, é os nossos principais serviços, os preços se tratam de estimativas e lifetime ou seja, na reunião iremos decidir tudo isso, projeto, tecnologias, objetivos, tudo o mais otimizado possivel, incluindo o preço. e lifetime significa pagar apenas uma vez e ter o site para sempre."
+                    onclick="help_toast(this)"></i></h1>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center align-items-center flex-column card p-3">

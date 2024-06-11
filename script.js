@@ -330,32 +330,28 @@ $(document).ready(function () {
 
     var observer = new IntersectionObserver(handleIntersection, observerOptions);
 
-    var lazyElements = document.querySelectorAll('.lazy');
-    lazyElements.forEach(function(element) {
-        observer.observe(element);
+    var lazyElements = $('.lazy');
+    lazyElements.each(function() {
+        observer.observe(this);
     });
 
     function handleIntersection(entries, observer) {
         entries.forEach(function(entry) {
+            var $element = $(entry.target);
             if (entry.isIntersecting) {
-                var element = entry.target;
-                if (!element.classList.contains('lazy-loaded')) {
-                    element.classList.add('lazy-loaded');
+                if (!$element.hasClass('lazy-loaded')) {
+                    $element.addClass('lazy-loaded');
                     var animations = ['lazy-animate-1', 'lazy-animate-2', 'lazy-animate-3'];
                     var animation = animations[Math.floor(Math.random() * animations.length)];
-                    element.classList.add(animation);
-                    element.classList.remove('lazy-out');
+                    $element.addClass(animation).removeClass('lazy-out');
                 }
             } else {
-                var element = entry.target;
-                if (element.classList.contains('lazy-loaded')) {
-                    element.classList.remove('lazy-loaded', 'lazy-animate-1', 'lazy-animate-2', 'lazy-animate-3');
-                    element.classList.add('lazy-out');
+                if ($element.hasClass('lazy-loaded')) {
+                    $element.removeClass('lazy-loaded lazy-animate-1 lazy-animate-2 lazy-animate-3').addClass('lazy-out');
                 }
             }
         });
     }
-
 
 
 

@@ -1,6 +1,10 @@
 <?php
 // save_answer.php
 
+header("Access-Control-Allow-Origin: https://limawebvision.github.io");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 // Função para conectar ao banco de dados SQLite3
 function connectDB() {
     $db = new SQLite3('questionnaire.db');

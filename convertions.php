@@ -36,6 +36,31 @@ function getAnswersGroupedByIP() {
     return $answersGrouped;
 }
 
+// Função para limpar o banco de dados
+function clearDatabase() {
+    $db = connectDB();
+    $db->exec('DELETE FROM answers');
+    $db->close();
+}
+
+// Função para deletar uma resposta específica
+function deleteAnswer($id) {
+    $db = connectDB();
+    $stmt = $db->prepare('DELETE FROM answers WHERE id = :id');
+    $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
+    $stmt->execute();
+    $db->close();
+}
+
+// Processamento de formulários
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['clear_db'])) {
+        clearDatabase();
+    } elseif (isset($_POST['delete_answer'])) {
+        deleteAnswer($_POST['answer_id']);
+    }
+}
+
 // Obtém todas as respostas agrupadas por IP
 $answersGrouped = getAnswersGroupedByIP();
 ?>
@@ -69,6 +94,9 @@ $answersGrouped = getAnswersGroupedByIP();
             color: #ffffff;
             font-weight: bold;
             font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .card-body {
             padding: 20px;
@@ -88,11 +116,21 @@ $answersGrouped = getAnswersGroupedByIP();
             font-size: 0.9rem;
             color: #888888;
         }
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #e91e63;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="mb-4 text-center">Respostas do Questionário</h1>
+        <form method="POST">
+            <button type="submit" name="clear_db" class="btn btn-danger mb-4">Limpar Banco de Dados</button>
+        </form>
         <?php foreach ($answersGrouped as $ipAddress => $answers): ?>
             <div class="card">
                 <div class="card-header">
@@ -104,6 +142,10 @@ $answersGrouped = getAnswersGroupedByIP();
                             <div class="question"><?php echo str_replace('_', ' ', $answer['input_name']); ?></div>
                             <div class="answer"><?php echo $answer['input_value']; ?></div>
                             <div class="date">Data de recebimento: <?php echo date('d/m/Y H:i:s', strtotime($answer['received_at'])); ?></div>
+                            <form method="POST" style="display:inline;">
+                                <input type="hidden" name="answer_id" value="<?php echo $answer['id']; ?>">
+                                <button type="submit" name="delete_answer" class="delete-btn">&times;</button>
+                            </form>
                         </div>
                     <?php endforeach; ?>
                 </div>

@@ -47,6 +47,7 @@
             background-color: var(--background-color);
             color: var(--text-color);
             font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/land-bg.jpeg') center/cover no-repeat;
         }
 
         .container {
@@ -95,14 +96,16 @@
             border-bottom: 2px solid var(--border-color);
             color: var(--text-color);
             padding: 10px 0;
-            transition: border-color 0.3s;
+            background-color: rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
             position: relative;
         }
 
         .form-control:focus {
-            border-bottom-color: var(--primary-color);
             color: var(--text-color);
             background-color: transparent;
+            border: none;
+            border-bottom: 2px solid var(--primary-color);
             box-shadow: none;
             outline: none;
         }
@@ -113,10 +116,15 @@
             top: 10px;
             padding: 0 10px;
             pointer-events: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             transition: 0.3s ease all;
             opacity: 0.6;
             font-size: 1rem;
+            max-width: calc(100% - 40px);
         }
+
 
         .input-group {
             position: relative;
@@ -140,12 +148,16 @@
         }
 
         .form-control:focus + .form-label,
-        .form-control:not(:placeholder-shown) + .form-label {
-            top: -20px;
-            opacity: 1;
-            font-size: 0.85rem;
-            color: var(--primary-color);
-        }
+.form-control:not(:placeholder-shown) + .form-label {
+    top: -20px;
+    opacity: 1;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    white-space: normal;
+    overflow: visible;
+    max-width: none;
+}
 
         .input-group-text:focus .icon,
         .input-group-text:hover .icon {
@@ -165,7 +177,7 @@
 <body>
     <div class="container mt-5 text-center">
         <h1 class="mb-4" style="font-weight: bold;">LIMA WEBVISION</h1>
-        <p class="">Digite <b>não</b>, caso prefira não responder.</p>
+        <p class="mb-5">Digite <b>não</b>, caso prefira não responder.</p>
         <div id="questionnaire">
             <!-- Perguntas serão adicionadas aqui -->
         </div>
@@ -194,7 +206,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mask-plugin/1.14.16/jquery.mask.min.js"></script>
     <script>
         $(document).ready(function () {
-            window.location.href = 'https://limawebvision.000webhostapp.com/';
+            if (window.location.hostname === 'limawebvision.github.io') {
+                window.location.href = 'https://limawebvision.000webhostapp.com/';
+            }
             const questions = [
     { pergunta: "Qual é o nome do seu negócio ou empresa?", tipo: "texto", icone: "fas fa-building" },
     { pergunta: "Descreva brevemente o seu negócio ou serviço:", tipo: "texto", icone: "fas fa-info-circle" },

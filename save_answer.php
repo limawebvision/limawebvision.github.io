@@ -42,6 +42,19 @@ function insertAnswer($db, $userHash, $inputName, $inputValue, $browserInfo, $ip
     return $result;
 }
 
+// Função para obter o endereço IP do cliente, preferencialmente IPv4
+function getIpAddress() {
+    $ipAddress = $_SERVER['REMOTE_ADDR'] ?? 'N/A';
+    if (strpos($ipAddress, ':') !== false) {
+        // Verifica se é IPv6 e tenta converter para IPv4
+        $ipV4 = inet_ntop(inet_pton($ipAddress));
+        if (strpos($ipV4, ':') === false) {
+            return $ipV4;
+        }
+    }
+    return $ipAddress;
+}
+
 // Verifica se é uma requisição POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtém os dados do POST
@@ -51,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Dados adicionais do usuário e ambiente
     $userHash = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_ACCEPT_LANGUAGE']);
     $browserInfo = $_SERVER['HTTP_USER_AGENT'] ?? 'N/A';
-    $ipAddress = $_SERVER['REMOTE_ADDR'] ?? 'N/A';
+    $ipAddress = getIpAddress();
     $language = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'N/A';
     $receivedAt = gmdate('Y-m-d H:i:s', time() - 3 * 3600); // Data de recebimento -3 GMT Brasil
 
@@ -89,3 +102,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'message' => 'Método HTTP não permitido'
     ]);
 }
+?>

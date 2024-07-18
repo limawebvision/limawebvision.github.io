@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,225 +18,397 @@
     <meta property="og:description"
         content="Somos Lima Webvision, Descubra como podemos revolucionar a visão que seus clientes tem sobre você com sistemas especializados e otimizados, tanto em custos quanto eficiência">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Custom CSS -->
     <style>
+        :root {
+            --primary-color: #00bcd4;
+            /* ciano */
+            --neon-color: #00e5ff;
+            /* tom de neon ciano */
+            --background-color: #121212;
+            /* fundo escuro */
+            --text-color: #ffffff;
+            /* texto branco */
+        }
+
         body {
-            background-color: #e0f7fa; /* fundo gelo */
+            background-color: var(--background-color);
             font-family: 'Quicksand', sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #333; /* preto mais suave */
+            color: var(--text-color);
             margin: 0;
             overflow: hidden;
         }
+
         .whatsapp-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 1000; /* Garante que esteja acima de outros elementos */
+            z-index: 1000;
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: #25d366; /* Verde do WhatsApp */
+            background-color: var(--primary-color);
             color: #fff;
             text-align: center;
             line-height: 60px;
             font-size: 24px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
+
         .whatsapp-button:hover {
-            background-color: #128c7e; /* Verde mais escuro no hover */
-            transform: scale(1.1); /* Aumenta um pouco no hover */
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+            background-color: #0097a7;
+            transform: scale(1.1);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
         }
+
         .whatsapp-icon {
             vertical-align: middle;
         }
+
         .cta-container {
-            background: #ffffff;
+            background: #1e1e1e;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             max-width: 600px;
             width: 90%;
+            color: var(--text-color);
         }
+
         .cta-heading {
             font-size: 2rem;
             margin-bottom: 20px;
-            color: #007BFF; /* azulada */
+            color: var(--text-color);
         }
+
         .cta-text {
             font-size: 1.25rem;
             margin-bottom: 30px;
-            color: #007BFF; /* azulada */
+            color: var(--text-color);
         }
-        .cta-button {
-            font-size: 1.2rem;
-            padding: 10px 30px;
-            color: #007BFF;
-            background-color: transparent; /* fundo transparente */
-            border: 2px solid #007BFF;
-            border-radius: 50px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.2s, transform 0.2s, color 0.2s;
-        }
-        .cta-button:hover {
-            background-color: #007BFF; /* fundo azul no hover */
-            color: #ffffff; /* texto branco no hover */
-            transform: scale(1.1);
-        }
-        .highlight {
-            color: #007BFF; /* azulada */
+
+
+        .highlight-text {
+            position: relative;
+            display: inline-block;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: white;
+            text-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color), 0 0 40px var(--neon-color);
         }
-        .cta-button {
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        /* Estilos do Popup */
+
         .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1; 
+            display: none;
+            position: fixed;
+            z-index: 1;
             left: 0;
             top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.5); 
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
         }
+
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; 
+            background-color: #1e1e1e;
+            margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; 
+            width: 80%;
             max-width: 500px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: left;
+            color: var(--text-color);
         }
+
         .close {
             color: #aaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
         }
+
         .close:hover,
         .close:focus {
-            color: #000;
+            color: #ffffff;
             text-decoration: none;
             cursor: pointer;
         }
+
         .email-input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
+            color: var(--text-color);
+            background-color: #1e1e1e;
         }
+
         .submit-button {
             background-color: transparent;
-            color: #007BFF; /* azulada */
+            border: 2px solid var(--neon-color);
+            color: var(--primary-color);
             padding: 10px 20px;
-            border: 2px solid #007BFF; /* azulada */
-            border-radius: 5px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 1rem;
-            width: 100%;
-            transition: background-color 0.2s, color 0.2s;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* drop-shadow */
+            transition: all 0.3s;
+            font-size: 16px;
+            text-transform: uppercase;
+            box-shadow: 0 0 1px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
         }
+
         .submit-button:hover {
-            background-color: #007BFF;
-            color: white;
+            background-color: var(--neon-color);
+            border-color: var(--neon-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.6);
         }
-        /* Animações em 3D */
-        @keyframes rotateIn {
-            from {
+
+
+
+        @keyframes cubeRotateIn {
+            0% {
+                transform: rotateX(-180deg) rotateY(-180deg) rotateZ(-180deg) scale(0.1);
                 opacity: 0;
-                transform: rotateX(-90deg);
             }
-            to {
+
+            70% {
+                transform: rotateX(20deg) rotateY(20deg) rotateZ(20deg) scale(1.2);
                 opacity: 1;
-                transform: rotateX(0);
+            }
+
+            100% {
+                transform: rotateX(0) rotateY(0) rotateZ(0) scale(1);
+                opacity: 1;
             }
         }
-        @keyframes flipIn {
-            from {
+
+        @keyframes scaleRotateIn {
+            0% {
+                transform: scale(0.1) rotateZ(-360deg);
                 opacity: 0;
-                transform: rotateY(-90deg);
             }
-            to {
+
+            70% {
+                transform: scale(1.2) rotateZ(0);
                 opacity: 1;
-                transform: rotateY(0);
+            }
+
+            100% {
+                transform: scale(1) rotateZ(0);
+                opacity: 1;
             }
         }
-        @keyframes slideIn {
-            from {
+
+        @keyframes bounceRotateIn {
+            0% {
+                transform: scale(0.1) rotateX(-180deg) rotateY(-180deg);
                 opacity: 0;
-                transform: translateZ(-200px);
             }
-            to {
+
+            70% {
+                transform: scale(1.2) rotateX(20deg) rotateY(20deg);
                 opacity: 1;
-                transform: translateZ(0);
+            }
+
+            100% {
+                transform: scale(1) rotateX(0) rotateY(0);
+                opacity: 1;
             }
         }
-        @keyframes fadeIn {
-            from {
+
+        @keyframes slideFlipIn {
+            0% {
+                transform: translateY(200%) rotateX(-180deg);
                 opacity: 0;
-                transform: scale(0.8);
             }
-            to {
+
+            70% {
+                transform: translateY(-10%) rotateX(20deg);
                 opacity: 1;
-                transform: scale(1);
+            }
+
+            100% {
+                transform: translateY(0) rotateX(0);
+                opacity: 1;
             }
         }
-        @keyframes zoomIn {
-            from {
+
+        @keyframes diagonalScaleIn {
+            0% {
+                transform: scale(0.1) translateX(50%) translateY(-50%);
                 opacity: 0;
-                transform: scale(0);
             }
-            to {
+
+            70% {
+                transform: scale(1.2) translateX(-10%) translateY(10%);
                 opacity: 1;
-                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1) translateX(0) translateY(0);
+                opacity: 1;
             }
         }
-        .rotate-in {
-            animation: rotateIn 1s ease-out;
+
+        @keyframes twistScaleIn {
+            0% {
+                transform: rotateZ(-180deg) scale(0.1);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotateZ(0) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateZ(0) scale(1);
+                opacity: 1;
+            }
         }
-        .flip-in {
-            animation: flipIn 1s ease-out;
+
+        @keyframes zigzagRotateIn {
+            0% {
+                transform: rotate(-180deg) translateX(-200%);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotate(20deg) translateX(10%);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotate(0) translateX(0);
+                opacity: 1;
+            }
         }
-        .slide-in {
-            animation: slideIn 1s ease-out;
+
+        @keyframes bounceScaleIn {
+            0% {
+                transform: scale(0.1) translateY(100%);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.2) translateY(-10%);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
         }
-        .fade-in {
-            animation: fadeIn 1s ease-out;
+
+        @keyframes spinZoomIn {
+            0% {
+                transform: rotateX(-180deg) rotateY(-180deg) scale(0.1);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotateX(20deg) rotateY(20deg) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateX(0) rotateY(0) scale(1);
+                opacity: 1;
+            }
         }
-        .zoom-in {
-            animation: zoomIn 1s ease-out;
+
+        @keyframes rotateScaleIn {
+            0% {
+                transform: rotate(-180deg) scale(0.1);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotate(0) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotate(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Aplicando animações adicionais às caixas */
+        .cube-rotate-in {
+            animation: cubeRotateIn 1s forwards;
+        }
+
+        .scale-rotate-in {
+            animation: scaleRotateIn 1s forwards;
+        }
+
+        .bounce-rotate-in {
+            animation: bounceRotateIn 1s forwards;
+        }
+
+        .slide-flip-in {
+            animation: slideFlipIn 1s forwards;
+        }
+
+        .diagonal-scale-in {
+            animation: diagonalScaleIn 1s forwards;
+        }
+
+        .twist-scale-in {
+            animation: twistScaleIn 1s forwards;
+        }
+
+        .zigzag-rotate-in {
+            animation: zigzagRotateIn 1s forwards;
+        }
+
+        .bounce-scale-in {
+            animation: bounceScaleIn 1s forwards;
+        }
+
+        .spin-zoom-in {
+            animation: spinZoomIn 1s forwards;
+        }
+
+        .rotate-scale-in {
+            animation: rotateScaleIn 1s forwards;
         }
     </style>
+
 </head>
+
 <body>
-    <div class="whatsapp-button" onclick="openWhatsApp()">
+    <div class="whatsapp-button animate" onclick="openWhatsApp()">
         <i class="fab fa-whatsapp fa-2x whatsapp-icon"></i>
     </div>
     <div class="cta-container">
-        <h1 class="cta-heading animate">Estamos <span class="highlight animate">reformulando</span> nosso portfólio!</h1>
-        <p class="cta-text animate">Gostaria de ser <span class="highlight animate">avisado</span> quando estiver pronto?</p>
-        <button class="btn cta-button animate" id="cta-button">EU QUERO</button>
+        <h1 class="text-center animate"><b class="highlight-text animate">LIMA</b> WEBVISION</h1>
+        <h1 class="cta-heading animate">Estamos <span class="highlight-text animate">reformulando</span> nosso
+            portfólio!</h1>
+        <p class="cta-text animate">Gostaria de ser <span class="highlight-text animate">avisado</span> quando estiver
+            pronto?</p>
+        <button class="btn submit-button animate" id="cta-button">EU QUERO</button>
     </div>
 
     <!-- The Modal -->
@@ -248,9 +421,13 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
 
@@ -273,17 +450,17 @@
         var span = document.getElementsByClassName("close")[0];
 
 
-        btn.onclick = function() {
+        btn.onclick = function () {
             modal.style.display = "block";
         }
 
 
-        span.onclick = function() {
+        span.onclick = function () {
             modal.style.display = "none";
         }
 
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
@@ -291,21 +468,33 @@
 
 
         function applyRandomAnimation(element) {
-            var animations = ['rotate-in', 'flip-in', 'slide-in', 'fade-in', 'zoom-in'];
+            var animations = [
+            'cube-rotate-in',
+            'scale-rotate-in',
+            'bounce-rotate-in',
+            'slide-flip-in',
+            'diagonal-scale-in',
+            'twist-scale-in',
+            'zigzag-rotate-in',
+            'bounce-scale-in',
+            'spin-zoom-in',
+            'rotate-scale-in'
+        ];
+
             var randomAnimation = animations[Math.floor(Math.random() * animations.length)];
             element.classList.add(randomAnimation);
         }
 
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             var elements = document.querySelectorAll('.animate');
-            elements.forEach(function(element) {
+            elements.forEach(function (element) {
                 applyRandomAnimation(element);
             });
         });
 
 
-        document.getElementById('submitEmail').addEventListener('click', function() {
+        document.getElementById('submitEmail').addEventListener('click', function () {
             var email = document.getElementById('emailInput').value;
 
 
@@ -314,13 +503,13 @@
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({ email: email }),
-                success: function(response) {
+                success: function (response) {
                     $('.modal-content').html(`
                         <h2>Sucesso!</h2>
                         <p>Obrigado! Você será avisado quando estiver pronto.</p>
                     `);
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     $('.modal-content').html(`
                         <h2>Erro!</h2>
                         <p>Ocorreu um erro ao enviar seu email. Tente novamente mais tarde.</p>
@@ -331,4 +520,5 @@
         });
     </script>
 </body>
+
 </html>

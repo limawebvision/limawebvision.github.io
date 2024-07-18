@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIMA Webvision (Questionário)</title>
+    <link rel="icon" type="image/x-icon" href="/assets/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css" />
+    <style>
+        /* Definição das variáveis de cores para o tema dark */
+        :root {
+            --background-color: #1f1f1f;
+            /* Cor de fundo escura */
+            --primary-color: #ffffff;
+            /* Cor principal (branco) */
+            --secondary-color: #2ecc71;
+            /* Verde secundário */
+            --text-color: #e0e0e0;
+            /* Cor do texto */
+            --border-color: #2c3e50;
+            /* Cor da borda */
+            --neon-color: #00FFFF;
+            /* Ciano para efeito de neon */
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #888;
+            transition: background-color 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #222;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Estilos gerais */
+        body {
+            font-family: 'Roboto', sans-serif;
+            /* Nova fonte */
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight-text {
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color), 0 0 40px var(--neon-color);
+        }
+
+        .neon-effect {
+            filter: drop-shadow(0 0 8px var(--neon-color)) drop-shadow(0 0 16px var(--neon-color)) drop-shadow(0 0 32px var(--neon-color));
+        }
+
+        p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Estilos para o formulário */
+        .questionnaire {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #2c3e50;
+            /* Cor de fundo do questionário */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+            /* Animação de entrada */
+        }
+
+        .question {
+            margin-bottom: 20px;
+            animation: fadeInLeft 1s ease;
+            /* Animação de entrada */
+        }
+
+        ::placeholder {
+            color: #ffffffb9 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .form-control {
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px;
+            background-color: #34495e;
+            /* Cor de fundo dos inputs */
+            color: var(--text-color);
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .form-control.checked {
+            background-color: #00FFFF;
+            filter: drop-shadow(1px 1px 40px #00FFFF);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            color: #ffffff;
+            background-color: #2c3e50;
+            /* Cor de fundo ao focar */
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+
+
+        .btn-primary {
+            background-color: transparent;
+            border: 2px solid var(--neon-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--neon-color);
+            border-color: var(--neon-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.6);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-success {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .btn-success:hover {
+            background-color: #27ae60;
+            /* Cor de hover mais escura */
+        }
+
+        /* Animações de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Efeito de sombra neon */
+        .neon-effect {
+            filter: drop-shadow(0 0 8px var(--neon-color)) drop-shadow(0 0 16px var(--neon-color)) drop-shadow(0 0 32px var(--neon-color));
+        }
+
+        .toastify-style {
+            color: #fff;
+            /* Cor do texto */
+            border-radius: 8px;
+            /* Bordas arredondadas */
+            font-size: 16px;
+            /* Tamanho da fonte */
+            padding: 16px;
+            /* Espaçamento interno */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Sombra */
+        }
+
+        .toastify-style.toastify-text {
+            font-weight: bold;
+            /* Estilo de texto em negrito */
+        }
+
+        /* Animações */
+
+        .lazy {
+            opacity: 0;
+            transition: all 1s ease-in-out;
+        }
+
+        @keyframes cubeRotateIn {
+            0% {
+                transform: rotateX(-180deg) rotateY(-180deg) rotateZ(-180deg) scale(0.1);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotateX(20deg) rotateY(20deg) rotateZ(20deg) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateX(0) rotateY(0) rotateZ(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleRotateIn {
+            0% {
+                transform: scale(0.1) rotateZ(-360deg);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.2) rotateZ(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) rotateZ(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceRotateIn {
+            0% {
+                transform: scale(0.1) rotateX(-180deg) rotateY(-180deg);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.2) rotateX(20deg) rotateY(20deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) rotateX(0) rotateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideFlipIn {
+            0% {
+                transform: translateY(200%) rotateX(-180deg);
+                opacity: 0;
+            }
+
+            70% {
+                transform: translateY(-10%) rotateX(20deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0) rotateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes diagonalScaleIn {
+            0% {
+                transform: scale(0.1) translateX(50%) translateY(-50%);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.2) translateX(-10%) translateY(10%);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) translateX(0) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes twistScaleIn {
+            0% {
+                transform: rotateZ(-180deg) scale(0.1);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotateZ(0) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateZ(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zigzagRotateIn {
+            0% {
+                transform: rotate(-180deg) translateX(-200%);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotate(20deg) translateX(10%);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotate(0) translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceScaleIn {
+            0% {
+                transform: scale(0.1) translateY(100%);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.2) translateY(-10%);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes spinZoomIn {
+            0% {
+                transform: rotateX(-180deg) rotateY(-180deg) scale(0.1);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotateX(20deg) rotateY(20deg) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateX(0) rotateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotateScaleIn {
+            0% {
+                transform: rotate(-180deg) scale(0.1);
+                opacity: 0;
+            }
+
+            70% {
+                transform: rotate(0) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotate(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Aplicando animações adicionais às caixas */
+        .cube-rotate-in {
+            animation: cubeRotateIn 1s forwards;
+        }
+
+        .scale-rotate-in {
+            animation: scaleRotateIn 1s forwards;
+        }
+
+        .bounce-rotate-in {
+            animation: bounceRotateIn 1s forwards;
+        }
+
+        .slide-flip-in {
+            animation: slideFlipIn 1s forwards;
+        }
+
+        .diagonal-scale-in {
+            animation: diagonalScaleIn 1s forwards;
+        }
+
+        .twist-scale-in {
+            animation: twistScaleIn 1s forwards;
+        }
+
+        .zigzag-rotate-in {
+            animation: zigzagRotateIn 1s forwards;
+        }
+
+        .bounce-scale-in {
+            animation: bounceScaleIn 1s forwards;
+        }
+
+        .spin-zoom-in {
+            animation: spinZoomIn 1s forwards;
+        }
+
+        .rotate-scale-in {
+            animation: rotateScaleIn 1s forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="text-center lazy">
+                <b class="highlight-text lazy">LIMA</b> WEBVISION
+            </h1>
+        </div>
+        <div class="questionnaire neon-effect">
+            <div class="question mb-3">
+                <div class="text-center lazy"><span id="questionCounter"></span></div>
+
+                <form id="questionForm">
+                    <!--QUESTIONS START-->
+                    <div id="questionForm_itens"></div>
+                    <!--QUESTIONS END-->
+                    <div class="text-center">
+                        <button type="submit" id="buttonForm" class="btn btn-primary lazy"><span>PROXIMO</span></button>
+                        <button type="button" id="clearForm" class="btn btn-primary lazy"><span>LIMPAR</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="bg-dark p-4 rounded text-center">
+                <h2 class="lazy" style="color: var(--primary-color);">Por Que Ter um Site, Sistema, Bot, e Muito Mais
+                    Conosco é a
+                    Melhor Escolha para o Seu Negócio</h2>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    Vivemos em uma era digital, onde a presença online não é mais uma opção, mas uma <span
+                        class="neon-text"><b>necessidade crucial</b></span> para qualquer negócio que queira prosperar.
+                    Ter um site bem projetado, um sistema eficiente, ou até mesmo um bot de atendimento pode transformar
+                    completamente a forma como você se conecta com seus clientes e gerencia suas operações. Neste
+                    artigo, vamos explorar em detalhes por que investir nesses recursos conosco é a melhor decisão que
+                    você pode tomar para o seu negócio.
+                </p>
+                <h3 class="lazy" style="color: var(--primary-color);">A Importância de um Site</h3>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b class="lazy">1. Presença Online 24/7:</b> Um site garante que seu negócio esteja acessível a
+                    qualquer momento,
+                    em qualquer lugar. Os clientes podem encontrar informações sobre seus produtos ou serviços, mesmo
+                    fora do horário comercial, proporcionando uma conveniência inigualável e potencialmente aumentando
+                    suas vendas.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>2. Credibilidade e Profissionalismo:</b> Um site bem projetado transmite <span
+                        class="neon-text"><b>profissionalismo e credibilidade</b></span>. Ele é muitas vezes o primeiro
+                    ponto de contato entre você e seus potenciais clientes. Um site moderno e intuitivo pode ser a
+                    diferença entre conquistar um cliente ou perdê-lo para a concorrência.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>3. Marketing Digital Eficiente:</b> Ter um site permite que você implemente diversas estratégias
+                    de marketing digital, como SEO (otimização para motores de busca), campanhas de PPC (pay-per-click),
+                    marketing de conteúdo e muito mais. Isso aumenta sua visibilidade online e atrai um público-alvo
+                    qualificado.
+                </p>
+                <h3 class="lazy" style="color: var(--primary-color);">Vantagens de Desenvolver Seu Site Conosco</h3>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>1. Personalização Total:</b> Entendemos que cada negócio é único. Por isso, nossos projetos são
+                    totalmente personalizados para refletir a identidade e os valores da sua marca. Usamos as respostas
+                    do seu questionário inicial para criar um design exclusivo e funcionalidades que atendam
+                    especificamente às suas necessidades.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>2. Design Responsivo:</b> Todos os nossos sites são projetados para serem responsivos, garantindo
+                    uma experiência de usuário impecável em qualquer dispositivo, seja um desktop, tablet ou smartphone.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>3. Tecnologia de Ponta:</b> Utilizamos as mais recentes tecnologias e práticas de desenvolvimento
+                    web para criar sites rápidos, seguros e escaláveis. Isso garante que seu site estará sempre
+                    atualizado com as melhores práticas do mercado.
+                </p>
+                <h3 class="lazy" style="color: var(--primary-color);">A Necessidade de um Sistema Personalizado</h3>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>1. Automatização de Processos:</b> Um sistema personalizado pode automatizar tarefas repetitivas
+                    e demoradas, permitindo que sua equipe se concentre em atividades mais estratégicas e produtivas.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>2. Gestão Eficiente:</b> Sistemas personalizados são projetados para atender às suas
+                    especificidades, facilitando a gestão de diferentes aspectos do seu negócio, como estoque, vendas,
+                    atendimento ao cliente e muito mais.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>3. Escalabilidade:</b> Nossos sistemas são desenvolvidos com a escalabilidade em mente,
+                    permitindo que cresçam junto com o seu negócio. Adicionar novas funcionalidades ou integrar com
+                    outras plataformas é simples e eficiente.
+                </p>
+                <h3 class="lazy" style="color: var(--primary-color);">Benefícios de Implementar um Bot</h3>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>1. Atendimento ao Cliente 24/7:</b> Um bot pode atender seus clientes a qualquer hora do dia ou
+                    da noite, respondendo perguntas frequentes, resolvendo problemas comuns e coletando informações
+                    importantes, tudo de forma automatizada.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>2. Engajamento Personalizado:</b> Bots podem ser programados para oferecer um atendimento
+                    personalizado, utilizando dados históricos e preferências dos clientes para proporcionar uma
+                    experiência única e satisfatória.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>3. Redução de Custos:</b> Ao automatizar o atendimento ao cliente, você reduz a necessidade de
+                    uma grande equipe de suporte, economizando recursos e aumentando a eficiência operacional.
+                </p>
+                <h3 class="lazy" style="color: var(--primary-color);">Por Que Escolher Nossos Serviços</h3>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>1. Experiência e Conhecimento:</b> Nossa equipe é composta por especialistas com vasta
+                    experiência em design, desenvolvimento e implementação de soluções digitais. Estamos sempre
+                    atualizados com as últimas tendências e tecnologias para oferecer o melhor aos nossos clientes.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>2. Suporte Contínuo:</b> Oferecemos suporte contínuo para garantir que seu site, sistema ou bot
+                    esteja sempre funcionando perfeitamente. Estamos aqui para resolver qualquer problema e realizar
+                    atualizações conforme necessário.
+                </p>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    <b>3. Resultados Comprovados:</b> Temos um histórico de sucesso com clientes satisfeitos em diversas
+                    indústrias. Nossos projetos não apenas atendem, mas superam as expectativas, ajudando nossos
+                    clientes a alcançar seus objetivos de negócios.
+                </p>
+                <h3 class="lazy" style="color: var(--primary-color);">Conclusão</h3>
+                <p class="lazy" style="color: var(--text-color); text-align: justify;">
+                    Investir em um site, sistema ou bot conosco é garantir que você terá as melhores ferramentas para
+                    impulsionar seu negócio no ambiente digital. Nosso compromisso é com a <span
+                        class="neon-text"><b>excelência</b></span> e a <span class="neon-text"><b>satisfação do
+                            cliente</b></span>, entregando soluções que realmente fazem a diferença. Não perca a
+                    oportunidade de levar seu negócio para o próximo nível. Entre em contato conosco hoje mesmo e
+                    descubra como podemos ajudar você a alcançar o sucesso.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <!-- Incluir a biblioteca Toastify JS (exemplo de CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script>
+        // Array com os tipos, perguntas e placeholders dos inputs
+        var inputs = [
+            { type: 'text', question: 'Qual é o seu nome?', placeholder: 'Ex: João Silva' },
+            { type: 'text', question: 'Qual é o seu telefone?', placeholder: 'Ex: (11) 98765-4321', mask: "phone" },
+            { type: 'text', question: 'Qual o principal objetivo do site?', placeholder: 'Ex: Vender produtos online' },
+            { type: 'email', question: 'Qual é o seu e-mail?', placeholder: 'Ex: joao.silva@example.com' },
+            { type: 'textarea', question: 'Conte-nos mais sobre o seu projeto (Opcional)', placeholder: 'Ex: Estou desenvolvendo um site para minha loja de roupas' }
+        ];
+
+        // Definir as classes de animação
+        const animationsIn = [
+            'cube-rotate-in',
+            'scale-rotate-in',
+            'bounce-rotate-in',
+            'slide-flip-in',
+            'diagonal-scale-in',
+            'twist-scale-in',
+            'zigzag-rotate-in',
+            'bounce-scale-in',
+            'spin-zoom-in',
+            'rotate-scale-in'
+        ];
+
+
+
+        const animationsOut = [];
+
+        var currentIndex = 0; // Índice do input atual
+        var totalQuestions = inputs.length;
+        var canSubmit = false;
+
+        // Função para atualizar o contador no <h2>
+        function updateQuestionCounter(index) {
+            $('#questionCounter').text(`Pergunta ${index + 1} de ${totalQuestions}`);
+        }
+
+        // Função para exibir um toast de sucesso
+        function showToast(message) {
+            Toastify({
+                text: message,
+                duration: 3000,
+                gravity: 'top', // Posição do toast
+                position: 'right', // Localização do toast
+                backgroundColor: 'rgba(0, 188, 212, 0.8)', // Cor de fundo ciano com transparência
+                stopOnFocus: true, // Parar ao focar
+                className: 'toastify-style', // Classe personalizada para estilização
+            }).showToast();
+        }
+
+
+        // Função para marcar o input como "checked" e desabilitá-lo
+        function markAsCheckedAndDisable($input) {
+            $input.addClass('checked').prop('disabled', true);
+        }
+
+        // Função para obter o IP do usuário
+        async function getUserIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (error) {
+                console.error('Erro ao obter o IP do usuário:', error);
+                return 'desconhecido';
+            }
+        }
+
+        function random_animation_return() {
+            const randomInAnimation = animationsIn[Math.floor(Math.random() * animationsIn.length)];
+            const randomOutAnimation = animationsOut[Math.floor(Math.random() * animationsOut.length)];
+            return randomInAnimation
+        }
+
+        // Função para redirecionar ao WhatsApp
+        async function redirectToWhatsApp() {
+            let userIP = await getUserIP();
+            let whatsappURL = `https://api.whatsapp.com/send/?phone=%2B5551981574181&text=Ol%C3%A1,%20tenho%20interesse%20em%20ter%20meu%20próprio%20site%20para%20expandir%20meus%20negócios%20(identificador%20=%20${userIP})&type=phone_number&app_absent=0`;
+            window.location.href = whatsappURL;
+        }
+        // Função para criar inputs baseados no array
+        function createInput(index) {
+            var inputInfo = inputs[index];
+
+            // Criação dinâmica do input baseado no tipo
+            var $input;
+            if (inputInfo.type === 'textarea') {
+                $input = $('<textarea>').addClass('form-control ' + random_animation_return()).attr({
+                    'id': 'question_' + index,
+                    'name': inputInfo.question,
+                    'placeholder': inputInfo.placeholder,
+                    'required': true
+                });
+            } else {
+                $input = $('<input>').addClass('form-control ' + random_animation_return()).attr({
+                    'type': inputInfo.type,
+                    'id': 'question_' + index,
+                    'name': inputInfo.question,
+                    'placeholder': inputInfo.placeholder,
+                    'required': true
+                });
+
+                // Aplica máscara automática para números
+                if (inputInfo.mask === 'phone') {
+                    $input.mask('(00) 0000-0000');
+                }
+            }
+
+            // Adiciona o input ao formulário
+            $('#questionForm_itens').append(
+                $('<div>').addClass('mb-3 question').append(
+                    $('<label>').addClass('form-label ' + random_animation_return()).attr('for', 'question_' + index).text(inputInfo.question),
+                    $input
+                )
+            );
+
+            // Mostra o input apenas quando o anterior é enviado
+            if (index > 0) {
+                $('#question_' + (index - 1)).closest('.question').find('input, textarea').last().on('input', function () {
+                    if ($(this).val().trim() !== '') {
+                        $('#question_' + index).closest('.question').slideDown();
+                    }
+                }).trigger('input');
+            } else {
+                $('#question_' + index).closest('.question').slideDown();
+            }
+
+            // Modifica o botão para "Finalizar" no último input
+            if (index === inputs.length - 1) {
+                $('#buttonForm').html('<span>Finalizar</span>');
+                canSubmit = true;
+            }
+
+            updateQuestionCounter(index);
+        }
+
+        // Função para enviar resposta atual via AJAX
+        function sendCurrentAnswer(inputName, inputValue, callback) {
+            $.ajax({
+                url: 'https://limawebvision.000webhostapp.com/save_answer.php',
+                method: 'POST',
+                data: {
+                    inputName: inputName,
+                    inputValue: inputValue
+                },
+                success: function (response) {
+                    const res = JSON.parse(response);
+                    if (res.status === 'success') {
+                        callback();
+                    }
+                },
+                error: function () {
+                    console.error('Erro ao enviar a resposta.');
+                    showToast('Erro: o servidor não respondeu a sua resposta!');
+                }
+            });
+        }
+        $(document).ready(function () {
+
+            updateQuestionCounter(0);
+
+            // Inicializa o primeiro input
+            createInput(currentIndex);
+
+            // Submissão do formulário
+            $('#questionForm').submit(function (event) {
+                event.preventDefault();
+
+                var currentInput = $('#question_' + currentIndex);
+                var inputName = currentInput.attr('name');
+                var inputValue = currentInput.val().trim();
+
+                if (inputValue !== '') {
+                    sendCurrentAnswer(inputName, inputValue, function () {
+                        showToast('Resposta enviada com sucesso!');
+                        markAsCheckedAndDisable(currentInput);
+                        if (canSubmit) {
+                            redirectToWhatsApp();
+                        } else {
+                            currentIndex++;
+                            if (currentIndex < inputs.length) {
+                                createInput(currentIndex);
+                            }
+                        }
+                    });
+                }
+            });
+
+            // Botão "Próximo" para adicionar inputs dinamicamente
+            $('#questionForm').on('click', '#buttonForm', function (event) {
+                event.preventDefault();
+
+                var currentInput = $('#question_' + currentIndex);
+                var inputName = currentInput.attr('name');
+                var inputValue = currentInput.val().trim();
+
+                if (inputValue !== '') {
+                    sendCurrentAnswer(inputName, inputValue, function () {
+                        showToast('Resposta enviada com sucesso!');
+                        markAsCheckedAndDisable(currentInput);
+                        currentIndex++;
+                        if (currentIndex < inputs.length) {
+                            createInput(currentIndex);
+                        }
+                    });
+                }
+            });
+
+            // Listener para o botão de limpar o formulário
+            $('#clearForm').click(function () {
+                if (currentIndex > 0) {
+                    $('.question').slideUp(400, function () {
+                        $(this).remove();
+                    });
+                    currentIndex = 0;
+                    createInput(currentIndex);
+                    showToast("Formulario Limpo");
+                }
+
+                else {
+                    showToast("Formulario Limpo")
+                }
+
+            });
+
+
+            function applyRandomAnimation(element) {
+                const randomInAnimation = animationsIn[Math.floor(Math.random() * animationsIn.length)];
+                const randomOutAnimation = animationsOut[Math.floor(Math.random() * animationsOut.length)];
+                $(element).addClass(randomInAnimation);
+                $(element).data('outAnimation', randomOutAnimation);
+            }
+
+            function applyOutAnimation(element) {
+                const outAnimation = $(element).data('outAnimation');
+                $(element).removeClass(animationsIn.join(' ')).addClass(outAnimation);
+            }
+
+            // Função para aplicar animações aleatórias aos elementos lazy
+            function applyRandomAnimationsToLazyElements() {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            applyRandomAnimation(entry.target);
+
+                            // Verifica se há <b> com a classe "highlight-text"
+                            $(entry.target).find('b.highlight-text').each(function () {
+                                applyRandomAnimation(this); // Aplica animação aleatória aos <b> específicos
+                            });
+
+                            observer.unobserve(entry.target);
+                        } else {
+                            applyOutAnimation(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.5
+                });
+
+                $('.lazy').each(function () {
+                    observer.observe(this);
+                });
+            }
+
+            // Verificar se o IntersectionObserver está disponível
+            if ('IntersectionObserver' in window) {
+                applyRandomAnimationsToLazyElements();
+            } else {
+                $('.lazy').each(function () {
+                    applyRandomAnimation(this);
+                });
+            }
+
+
+        });
+    </script>

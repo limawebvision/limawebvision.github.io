@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +58,8 @@
             box-sizing: border-box;
         }
 
-        .btn-vibrant, .btn-success {
+        .btn-vibrant,
+        .btn-success {
             background-color: var(--primary-color);
             color: var(--text-color);
             border: none;
@@ -66,7 +68,8 @@
             transition: background-color 0.3s;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 24px var(--neon-shadow-color); /* Efeito de sombra neon */
+            box-shadow: 0 8px 24px var(--neon-shadow-color);
+            /* Efeito de sombra neon */
         }
 
         .btn-vibrant:hover {
@@ -147,17 +150,17 @@
             transition: transform 0.3s ease-out;
         }
 
-        .form-control:focus + .form-label,
-.form-control:not(:placeholder-shown) + .form-label {
-    top: -20px;
-    opacity: 1;
-    font-size: 0.85rem;
-    color: var(--primary-color);
-    background-color: rgba(0, 0, 0, 0.5);
-    white-space: normal;
-    overflow: visible;
-    max-width: none;
-}
+        .form-control:focus+.form-label,
+        .form-control:not(:placeholder-shown)+.form-label {
+            top: -20px;
+            opacity: 1;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            background-color: rgba(0, 0, 0, 0.5);
+            white-space: normal;
+            overflow: visible;
+            max-width: none;
+        }
 
         .input-group-text:focus .icon,
         .input-group-text:hover .icon {
@@ -174,6 +177,7 @@
     </style>
 
 </head>
+
 <body>
     <div class="container mt-5 text-center">
         <h1 class="mb-4" style="font-weight: bold;">LIMA WEBVISION</h1>
@@ -185,19 +189,29 @@
         <div class="bg-dark m-4 rounded p-3">
             <h1 style="font-weight: bold;">Por Que Esse Questionário é Importante para o Seu Projeto de Site?</h1>
             <h2>Entendendo Suas Necessidades</h2>
-            <p>O questionário é uma ferramenta essencial para entendermos as necessidades e expectativas do seu projeto de site. Ao coletar informações detalhadas sobre o seu negócio, podemos oferecer soluções personalizadas que atendam exatamente às suas demandas.</p>
+            <p>O questionário é uma ferramenta essencial para entendermos as necessidades e expectativas do seu projeto
+                de site. Ao coletar informações detalhadas sobre o seu negócio, podemos oferecer soluções personalizadas
+                que atendam exatamente às suas demandas.</p>
 
             <h2>Personalização e Eficiência</h2>
-            <p>Com as respostas fornecidas, conseguimos personalizar o design e funcionalidades do seu site para refletir a identidade da sua marca. Isso não só garante que o site seja visualmente atraente, mas também que ele funcione de maneira eficiente, proporcionando uma excelente experiência ao usuário.</p>
+            <p>Com as respostas fornecidas, conseguimos personalizar o design e funcionalidades do seu site para
+                refletir a identidade da sua marca. Isso não só garante que o site seja visualmente atraente, mas também
+                que ele funcione de maneira eficiente, proporcionando uma excelente experiência ao usuário.</p>
 
             <h2>Economia de Tempo</h2>
-            <p>Um questionário bem estruturado nos permite identificar suas preferências e prioridades desde o início, economizando tempo em reuniões e ajustes posteriores. Isso acelera o processo de desenvolvimento, permitindo que seu site esteja pronto para uso em menos tempo.</p>
+            <p>Um questionário bem estruturado nos permite identificar suas preferências e prioridades desde o início,
+                economizando tempo em reuniões e ajustes posteriores. Isso acelera o processo de desenvolvimento,
+                permitindo que seu site esteja pronto para uso em menos tempo.</p>
 
             <h2>Melhoria Contínua</h2>
-            <p>As informações coletadas através do questionário também são úteis para melhorias contínuas. Com base no feedback inicial e nos dados fornecidos, podemos sugerir atualizações e otimizações futuras, garantindo que seu site continue a evoluir com as tendências do mercado e as necessidades dos seus clientes.</p>
+            <p>As informações coletadas através do questionário também são úteis para melhorias contínuas. Com base no
+                feedback inicial e nos dados fornecidos, podemos sugerir atualizações e otimizações futuras, garantindo
+                que seu site continue a evoluir com as tendências do mercado e as necessidades dos seus clientes.</p>
 
             <h2>Contato Direto e Fácil</h2>
-            <p>Ao final do questionário, você será redirecionado automaticamente para o nosso WhatsApp. Isso facilita a comunicação direta, permitindo esclarecer dúvidas, discutir detalhes do projeto e fornecer feedback de forma rápida e conveniente.</p>
+            <p>Ao final do questionário, você será redirecionado automaticamente para o nosso WhatsApp. Isso facilita a
+                comunicação direta, permitindo esclarecer dúvidas, discutir detalhes do projeto e fornecer feedback de
+                forma rápida e conveniente.</p>
         </div>
 
     </div>
@@ -218,22 +232,18 @@
 
         async function redirectToWhatsApp() {
             let userIP = await getUserIP();
-            if (userIP) {
-                let whatsappURL = `https://api.whatsapp.com/send/?phone=%2B5551981574181&text=Ol%C3%A1,%20tenho%20interesse%20em%20ter%20meu%20proprio%20site%20para%20expandir%20meus%20negocios%20(identificador%20=%20${userIP})&type=phone_number&app_absent=0`;
-                window.location.href = whatsappURL;
-            } else {
-                alert('Não foi possível obter o IP do usuário.');
-            }
+            let whatsappURL = `https://api.whatsapp.com/send/?phone=%2B5551981574181&text=Ol%C3%A1,%20tenho%20interesse%20em%20ter%20meu%20proprio%20site%20para%20expandir%20meus%20negocios%20(identificador%20=%20${userIP})&type=phone_number&app_absent=0`;
+            window.location.href = whatsappURL;
         }
         $(document).ready(function () {
             if (window.location.hostname === 'limawebvision.github.io') {
                 window.location.href = 'https://limawebvision.000webhostapp.com/';
             }
             const questions = [
-            { pergunta: "Qual o propósito do site? (pode ser o mais detalhado possivel ou resumido)", tipo: "texto", icone: "fas fa-comments" },
-    { pergunta: "Como posso chama-lo? (primeiro nome ou ultimo nome ou apelido)", tipo: "texto", icone: "fas fa-user" },
-    { pergunta: "Deixe aqui sua principal forma de contato (seu numero ou email ou outro)", tipo: "texto", icone: "fas fa-phone" }
-];
+                { pergunta: "Qual o propósito do site? (pode ser o mais detalhado possivel ou resumido)", tipo: "texto", icone: "fas fa-comments" },
+                { pergunta: "Como posso chama-lo? (primeiro nome ou ultimo nome ou apelido)", tipo: "texto", icone: "fas fa-user" },
+                { pergunta: "Deixe aqui sua principal forma de contato (seu numero ou email ou outro)", tipo: "texto", icone: "fas fa-phone" }
+            ];
 
 
             function loadQuestions() {
@@ -268,9 +278,9 @@
                                 </div>
                             </div>
                             <div class="text-end">
-                                ${index < questions.length - 1 
-                                    ? `<button class="btn btn-vibrant next-question" data-next="${index + 2}" data-index="${index}">Avançar</button>`
-                                    : `<button class="btn btn-success" id="finish" data-index="${index}">Finalizar</button>`}
+                                ${index < questions.length - 1
+                            ? `<button class="btn btn-vibrant next-question" data-next="${index + 2}" data-index="${index}">Avançar</button>`
+                            : `<button class="btn btn-success" id="finish" data-index="${index}">Finalizar</button>`}
                             </div>
                         </div>
                     `;
@@ -285,7 +295,7 @@
             }
 
             function showQuestion(index) {
-                $('.question-container.active').removeClass('active').fadeOut(function() {
+                $('.question-container.active').removeClass('active').fadeOut(function () {
                     $(`#question-${index}`).fadeIn().addClass('active');
                     updateCounter(index);
                 });
@@ -355,7 +365,7 @@
             loadQuestions();
 
 
-             $('#removeButton').click(function() {
+            $('#removeButton').click(function () {
                 $('div.z-index').last().remove();
             });
         });
@@ -363,4 +373,5 @@
 
     </script>
 </body>
+
 </html>
